@@ -51,18 +51,20 @@ const Cart = () => {
                   <div className="item-details">
                     <h3>{item.title}</h3>
                     <p>Price: ${item.price.toFixed(2)}</p>
+                    <div className="quantity-control-main">
                     <div className="quantity-controls">
                       <button onClick={() => updateCart(item.id, "decrease")}>-</button>
                       <span>{item.quantity}</span>
                       <button onClick={() => updateCart(item.id, "increase")}>+</button>
                     </div>
-                  </div>
-                  <button
+                    <button
                     className="delete-item-btn"
                     onClick={() => removeFromCart(item.id)}
                   >
                     <FaTrash size={20} />
                   </button>
+                  </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -104,9 +106,11 @@ const Cart = () => {
             </div>
           </div>
           {cartItems.length > 0 && (
-            <button onClick={clearCart} className="clear-cart-btn">
+            <div className="checkout"><button onClick={clearCart} className="clear-cart-btn">
               Clear Cart
             </button>
+            <button className="clear-cart-btn">Checkout</button>
+            </div>
           )}
         </div>
         )}

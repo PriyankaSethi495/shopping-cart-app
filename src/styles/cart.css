@@ -64,10 +64,17 @@
   color: #666;
 }
 
+.quantity-control-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .quantity-controls {
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: flex-start;
 }
 
 .quantity-controls button {
@@ -94,6 +101,7 @@
   color: #ff6b6b;
   cursor: pointer;
   margin-left: 10px;
+  align-self: flex-end;
 }
 
 .delete-item-btn:hover {
@@ -183,7 +191,7 @@
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
-  margin: 20px auto 0;
+  margin: 20px 0;
   display: block;
   transition: background-color 0.3s ease;
 }
@@ -191,6 +199,14 @@
 .clear-cart-btn:hover {
   background-color: #f72f54;
 }
+
+.checkout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
 
 @media (max-width: 768px) {
   .cart {
