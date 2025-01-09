@@ -1,0 +1,65 @@
+.product-description.shimmer {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin: 100px auto;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 2px 12px rgb(144, 22, 79);
+    align-items: center;
+    width: 1000px;
+    max-width: 90%;
+    box-sizing: border-box;
+    height: 400px;
+  }
+  
+  .shimmer-image,
+  .shimmer-title,
+  .shimmer-price,
+  .shimmer-description,
+  .shimmer-category,
+  .shimmer-rating {
+    background: #e0e0e0;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 5px;
+  }
+  
+  .shimmer-image {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .shimmer-title {
+    width: 300px;
+    height: 20px;
+  }
+  
+  .shimmer-price {
+    width: 150px;
+    height: 20px;
+  }
+  
+  .shimmer-description {
+    width: 80%;
+    height: 40px;
+  }
+  
+  .shimmer-category {
+    width: 150px;
+    height: 20px;
+  }
+  
+  .shimmer-rating {
+    width: 100px;
+    height: 20px;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200px 0;
+    }
+    100% {
+      background-position: 200px 0;
+    }
+  }
+  
