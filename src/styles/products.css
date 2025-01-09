@@ -170,3 +170,33 @@
         gap: 15px;
     }
   }
+
+  /*quantity control css*/
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .quantity-controls button {
+    background-color: #ff617e;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .quantity-controls button:hover {
+    background-color: #f72f54;
+  }
+
+  .quantity-controls span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+  } 
