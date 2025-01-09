@@ -56,6 +56,9 @@ const Products = () => {
                   <div className="product-details">
                     <h3>{product.title}</h3>
                     <p>${product.price.toFixed(2)}</p>
+                    <div className="product-rating">
+                      <p>Rating: {product.rating.rate} ({product.rating.count} Reviews)</p>
+                    </div>
                   </div>
                 </Link>
 
