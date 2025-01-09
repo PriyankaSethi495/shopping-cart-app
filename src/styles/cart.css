@@ -16,6 +16,18 @@
   margin-top: 20px;
 }
 
+.cart-empty-add {
+  background-color: #ff617e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 20px 0;
+  transition: background-color 0.3s ease;
+} 
+
 .cart {
   background-color: #fff;
   color: #333;
@@ -236,5 +248,13 @@
   .clear-voucher-btn {
       width: 100%;
       margin-left: 0;
+  }
+}
+
+
+@media (max-width: 800px) {
+  .quantity-control-main {
+    flex-direction: column;
+    justify-content: flex-start;
   }
 }

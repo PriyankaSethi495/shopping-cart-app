@@ -3,15 +3,16 @@ import "../styles/cart.css";
 import Navbar from "../components/Navbar";
 import { useCart } from "../context/CartContext";
 import { FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cartItems, updateCart, removeFromCart, calculateTotal, clearCart } = useCart();
   const [voucherApplied, setVoucherApplied] = useState(false);
-
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const totalAmount = calculateTotal();
   const discount = voucherApplied ? (totalAmount * 0.1).toFixed(2) : 0;
   const finalAmount = (totalAmount - discount).toFixed(2);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (totalAmount <= 200 && voucherApplied) {
@@ -41,7 +42,10 @@ const Cart = () => {
       <div className="cart-page">
         <h2 className="cart-title">Your Cart</h2>
         {cartItems.length === 0 ? (
-            <p className="cart-empty">Your cart is empty, let's go add some interesting items to your cart! </p>
+          <div>
+            <p className="cart-empty">Oops, your aisle cart is feeling lonely! How about we fill it with some awesome goodies? </p>
+            <button className="cart-empty-add" onClick={() => navigate("/")}>Add items to cart</button>
+          </div>  
           ) : (
         <div className="cart">
             <div className="cart-items">
