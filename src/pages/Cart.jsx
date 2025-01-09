@@ -5,7 +5,7 @@ import { useCart } from "../context/CartContext";
 import { FaTrash } from "react-icons/fa";
 
 const Cart = () => {
-  const { cartItems, updateCart, removeFromCart, calculateTotal } = useCart();
+  const { cartItems, updateCart, removeFromCart, calculateTotal, clearCart } = useCart();
 
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const totalAmount = calculateTotal();
@@ -46,6 +46,12 @@ const Cart = () => {
         <div className="cart-total">
           <h3>Total Amount: ${totalAmount}</h3>
         </div>
+        
+        {cartItems.length > 0 && (
+          <button onClick={clearCart} className="clear-cart-btn">
+            Clear Cart
+          </button>
+        )}
       </div>
     </>
   );

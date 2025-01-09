@@ -64,6 +64,12 @@ export const CartProvider = ({ children }) => {
     ).toFixed(2);
   };
 
+  // Clear Cart function
+  const clearCart = () => {
+    setCartItems([]);
+    localStorage.removeItem("cart");
+  };
+
   // Sync cart items with localStorage
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
@@ -73,7 +79,7 @@ export const CartProvider = ({ children }) => {
   }, []);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, updateCart, removeFromCart, calculateTotal }}>
+    <CartContext.Provider value={{ cartItems, addToCart, updateCart, removeFromCart, calculateTotal, clearCart }}>
       {children}
     </CartContext.Provider>
   );
