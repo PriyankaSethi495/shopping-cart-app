@@ -1,4 +1,3 @@
-// src/pages/Products.jsx
 import React, { useEffect, useState } from "react";
 import "../styles/products.css";
 import Shimmerproducts from "../components/ShimmerUI/Shimmerproducts";
@@ -12,6 +11,7 @@ const Products = () => {
   const [error, setError] = useState(false);
   const { cartItems, updateCart, addToCart, removeFromCart } = useCart();
 
+  //Fetching list of all products
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
@@ -27,14 +27,15 @@ const Products = () => {
       });
   }, []);
 
+  //Displaying message on data fetch error
   if (error) {
-    return <Error />;
+    return <Error/>;
   }
 
   return (
     <>
       {loading ? (
-        <Shimmerproducts />
+        <Shimmerproducts/>
       ) : (
         <div className="products-component">
           {products.map((product) => (

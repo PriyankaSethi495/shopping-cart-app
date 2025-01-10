@@ -226,6 +226,10 @@
   gap: 10px;
 }
 
+.cart-item-click {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .cart {
     width: 90%;

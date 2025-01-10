@@ -11,24 +11,31 @@ const Cart = () => {
   const [voucherApplied, setVoucherApplied] = useState(false);
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const totalAmount = calculateTotal();
-  const discount = voucherApplied ? (totalAmount * 0.1).toFixed(2) : 0;
+  const discount = voucherApplied ? (totalAmount * 0.1).toFixed(2) : 0; //Calculating 10% voucher discount
   const finalAmount = (totalAmount - discount).toFixed(2);
   const navigate = useNavigate();
 
+  //Voucher option enable/disable dynamically based on total amount
   useEffect(() => {
     if (totalAmount <= 200 && voucherApplied) {
       setVoucherApplied(false);
     }
   }, [totalAmount, voucherApplied]);
 
+  //Apply voucher
   const applyVoucher = () => {
     if (totalAmount > 200) {
       setVoucherApplied(true);
     }
   };
 
+  //Clear voucher
   const clearVoucher = () => {
     setVoucherApplied(false);
+  };
+  
+  const handleItemClick = (productId) => {
+    navigate(`/product/${productId}`);
   };
 
   return (
@@ -47,12 +54,13 @@ const Cart = () => {
           <div className="cart">
             <div className="cart-items">
               {cartItems.map((item) => (
-                <CartItem
-                  key={item.id}
-                  item={item}
-                  updateCart={updateCart}
-                  removeFromCart={removeFromCart}
-                />
+                <div className="cart-item-click" key={item.id} onClick={() => handleItemClick(item.id)}>
+                  <CartItem
+                    item={item}
+                    updateCart={updateCart}
+                    removeFromCart={removeFromCart}
+                  />
+                </div>
               ))}
             </div>
             <div className="add-more-items">

@@ -16,6 +16,7 @@ const ProductDescription = () => {
   const [error, setError] = useState(false);
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
+  //Fetching product details using its id
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then(response => response.json())
@@ -31,17 +32,17 @@ const ProductDescription = () => {
       });
   }, [id]);
 
-
-
   const goToCart = () => {
     navigate("/cart");
   };
 
+  //Get current quantity of product in cart  
   const getCartQuantity = (productId) => {
     const item = cartItems.find((item) => item.id === productId);
     return item ? item.quantity : 0;
   };
 
+  //Handle increase/decrease the quantity using quantity controls
   const handleDecrease = () => {
     const quantity = getCartQuantity(product.id);
     if (quantity === 1) {

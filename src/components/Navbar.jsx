@@ -13,6 +13,7 @@ const Navbar = ({ cartCount, goToCart }) => {
       <div className="navbar-logo" onClick={goToHome}>Burberry Aisle</div>
       <div className="navbar-cart" onClick={goToCart}>
         <FaShoppingCart size={40} />
+        {/*Updating cart count on cart icon dynamically*/}
         {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
       </div>
       <div className="cover-text">
