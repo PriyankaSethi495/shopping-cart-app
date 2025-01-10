@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import QuantityControls from './QuantityControls';
-import useCartFunctions from '../context/useCartFunctions';
+import useCartFunctions from '../hooks/useCartFunctions';
 
 const ProductItem = ({ product, cartItems }) => {
   //Custom hook

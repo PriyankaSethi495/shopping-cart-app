@@ -5,8 +5,7 @@ import ShimmerProductDescription from '../components/ShimmerUI/ShimmerProductDes
 import Navbar from '../components/Navbar';
 import Error from '../components/Error';
 import QuantityControls from '../components/QuantityControls';
-import useCartFunctions from '../context/useCartFunctions';
-import { useCart } from '../context/CartContext';
+import useCartFunctions from '../hooks/useCartFunctions';
 
 const ProductDescription = () => {
   const { id } = useParams(); 
