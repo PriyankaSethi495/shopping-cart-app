@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import "../styles/productDescription.css"; 
 import ShimmerProductDescription from '../components/ShimmerProductDescription';
 import { useCart } from '../context/CartContext';
@@ -10,7 +10,7 @@ const ProductDescription = () => {
   const { cartItems, updateCart, addToCart, removeFromCart } = useCart();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -25,6 +25,10 @@ const ProductDescription = () => {
       });
   }, [id]);
 
+
+  const goToCart = () => {
+    navigate("/cart");
+  };
 
   const getCartQuantity = (productId) => {
     const item = cartItems.find((item) => item.id === productId);
@@ -46,7 +50,7 @@ const ProductDescription = () => {
 
   return (
     <>
-    <Navbar/>
+    <Navbar cartCount={cartItems.length} goToCart={goToCart} />
       {loading ? <ShimmerProductDescription /> : (
         <div className="product-description">
           <img src={product.image} alt={product.title} className="product-description-image" />

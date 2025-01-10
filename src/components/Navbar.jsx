@@ -15,6 +15,9 @@ const Navbar = ({ cartCount, goToCart }) => {
         <FaShoppingCart size={40} />
         {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
       </div>
+      <div className="cover-text">
+        Welcome to Burberry Aisle! <br/> Shop till you drop... <br /> but make it classy!
+      </div>
     </nav>
   );
 };

@@ -105,7 +105,7 @@ const Cart = () => {
               </div>
             )}
             <div className="cart-finalamount">
-              <h5>Final Amount: </h5>
+              <h5>To Pay: </h5>
               <h5> ${finalAmount}</h5>
             </div>
           </div>
@@ -113,7 +113,7 @@ const Cart = () => {
             <div className="checkout"><button onClick={clearCart} className="clear-cart-btn">
               Clear Cart
             </button>
-            <button className="clear-cart-btn">Checkout</button>
+            <button className="clear-cart-btn">Proceed to Pay</button>
             </div>
           )}
         </div>
