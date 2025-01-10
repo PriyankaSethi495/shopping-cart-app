@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import "../styles/productDescription.css"; 
 import ShimmerProductDescription from '../components/ShimmerProductDescription';
 import { useCart } from '../context/CartContext';
+import Navbar from '../components/Navbar';
 
 const ProductDescription = () => {
   const { id } = useParams(); 
@@ -45,6 +46,7 @@ const ProductDescription = () => {
 
   return (
     <>
+    <Navbar/>
       {loading ? <ShimmerProductDescription /> : (
         <div className="product-description">
           <img src={product.image} alt={product.title} className="product-description-image" />

@@ -6,7 +6,7 @@ const ShimmerProductDescription = () => {
     <div className="product-description shimmer">
       <div className="shimmer-image"></div>
       <div className="shimmer-details">
-        <div className="shimmer-title"></div>
+        <div className="description-shimmer-title"></div>
         <div className="shimmer-price"></div>
         <div className="shimmer-description"></div>
         <div className="shimmer-category"></div>
