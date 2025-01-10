@@ -1,6 +1,7 @@
 # Shopping Store App
 
 This is a React-based shopping store app that allows users to browse products, add them to the cart, update quantities, apply vouchers, and proceed to checkout.
+
 **Note**: This project is deployed on Render and can be accessed at - https://shopping-cart-app-w4ey.onrender.com/
 
 ## Features
