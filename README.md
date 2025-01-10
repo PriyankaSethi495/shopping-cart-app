@@ -28,9 +28,13 @@ This is a React-based shopping store app that allows users to browse products, a
 
 To get started with the project, follow these instructions:
 
+
 ### Prerequisites
 
-1. Install [Node.js](https://nodejs.org/) (v14 or later) if you don't have it installed.
+Ensure that you have the following installed:
+
+- [Node.js](https://nodejs.org/) (>= 16.x)
+- [npm](https://www.npmjs.com/) (package manager for Node.js)
 
 ### Install Dependencies
 
