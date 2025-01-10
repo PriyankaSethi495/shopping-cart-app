@@ -16,6 +16,7 @@
   margin-top: 20px;
 }
 
+
 .cart-empty-add {
   background-color: #ff617e;
   color: white;
@@ -26,6 +27,8 @@
   font-size: 1rem;
   margin: 20px 0;
   transition: background-color 0.3s ease;
+  display: inline-block;
+  text-align: center;
 } 
 
 .cart {
@@ -120,6 +123,11 @@
   color: #ff3b3b;
 }
 
+.add-more-items {
+ display: flex;
+ justify-content: center; 
+}
+
 .cart-total {
   font-size: 1rem;
   font-weight: bold;
@@ -208,7 +216,7 @@
   transition: background-color 0.3s ease;
 }
 
-.clear-cart-btn:hover {
+.clear-cart-btn:hover, .cart-empty-add:hover {
   background-color: #f72f54;
 }
 

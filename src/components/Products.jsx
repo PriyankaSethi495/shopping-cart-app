@@ -4,6 +4,7 @@ import Shimmerproducts from "./Shimmerproducts";
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import Error from "./Error";
+import QuantityControls from "./QuantityControls";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -72,17 +73,11 @@ const Products = () => {
                   </div>
                 </Link>
 
-                {quantity > 0 ? (
-                  <div className="quantity-controls">
-                    <button onClick={() => handleDecrease(product)}>-</button>
-                    <span>{quantity}</span>
-                    <button
-                      onClick={() => updateCart(product.id, "increase")}
-                    >
-                      +
-                    </button>
-                  </div>
-                ) : (
+                {quantity > 0 ? <QuantityControls 
+                    quantity={quantity}
+                    onIncrease={() => updateCart(product.id, "increase")}
+                    onDecrease={() => handleDecrease(product)}
+                  /> : (
                   <button
                     onClick={() => addToCart(product)}
                     className="add-to-cart-btn"

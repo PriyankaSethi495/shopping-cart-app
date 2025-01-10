@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import { useCart } from "../context/CartContext";
 import { FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import QuantityControls from "../components/QuantityControls";
 
 const Cart = () => {
   const { cartItems, updateCart, removeFromCart, calculateTotal, clearCart } = useCart();
@@ -56,15 +57,16 @@ const Cart = () => {
                     <h3>{item.title}</h3>
                     <p>Price: ${item.price.toFixed(2)}</p>
                     <div className="quantity-control-main">
-                    <div className="quantity-controls">
-                      <button onClick={() => updateCart(item.id, "decrease")}>-</button>
-                      <span>{item.quantity}</span>
-                      <button onClick={() => updateCart(item.id, "increase")}>+</button>
-                    </div>
+                    <QuantityControls
+                      quantity={item.quantity}
+                      onIncrease={() => updateCart(item.id, "increase")}
+                      onDecrease={() => updateCart(item.id, "decrease")}
+                      onDelete={() => removeFromCart(item.id)}
+                    />
                     <button
                     className="delete-item-btn"
                     onClick={() => removeFromCart(item.id)}
-                  >
+                    >
                     <FaTrash size={20} />
                   </button>
                   </div>
@@ -72,7 +74,8 @@ const Cart = () => {
                 </div>
               ))}
             </div>
-            <button className="cart-empty-add" onClick={() => navigate("/")}>Add more items</button>
+            <div className="add-more-items">
+            <button className="cart-empty-add" onClick={() => navigate("/")}>Add more items</button></div>
           <div className="cart-total">
             {totalAmount > 200 && !voucherApplied && (
               <div className="voucher-section">

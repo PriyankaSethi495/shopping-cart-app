@@ -5,6 +5,7 @@ import ShimmerProductDescription from '../components/ShimmerProductDescription';
 import { useCart } from '../context/CartContext';
 import Navbar from '../components/Navbar';
 import Error from '../components/Error';
+import QuantityControls from '../components/QuantityControls';
 
 const ProductDescription = () => {
   const { id } = useParams(); 
@@ -75,13 +76,12 @@ const ProductDescription = () => {
             <div className="product-rating">
               <p>Rating: {product.rating.rate} ({product.rating.count} Reviews)</p>
             </div>
-            {getCartQuantity(product.id) > 0 ? (
-              <div className="quantity-controls">
-                <button onClick={handleDecrease}>-</button>
-                <span>{getCartQuantity(product.id)}</span>
-                <button onClick={handleIncrease}>+</button>
-              </div>
-            ) : (
+            {getCartQuantity(product.id) > 0 ? <QuantityControls 
+              quantity={getCartQuantity(product.id)}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+              onDelete={getCartQuantity(product.id) > 0 ? () => removeFromCart(product.id) : null}
+            /> : (
               <button onClick={() => addToCart(product)} className="add-to-cart-btn">
                 Add to Cart
               </button>
