@@ -2,21 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import "../styles/productDescription.css"; 
 import ShimmerProductDescription from '../components/ShimmerUI/ShimmerProductDescription';
-import { useCart } from '../context/CartContext';
 import Navbar from '../components/Navbar';
 import Error from '../components/Error';
 import QuantityControls from '../components/QuantityControls';
+import useCartFunctions from '../context/useCartFunctions';
+import { useCart } from '../context/CartContext';
 
 const ProductDescription = () => {
   const { id } = useParams(); 
-  const { cartItems, updateCart, addToCart, removeFromCart } = useCart();
+  const { getCartQuantity, handleIncrease, handleDecrease, addToCart, removeFromCart, cartCount } = useCartFunctions(); //Custom Hook
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [error, setError] = useState(false);
-  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
-  //Fetching product details using its id
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then(response => response.json())
@@ -36,36 +35,13 @@ const ProductDescription = () => {
     navigate("/cart");
   };
 
-  //Get current quantity of product in cart  
-  const getCartQuantity = (productId) => {
-    const item = cartItems.find((item) => item.id === productId);
-    return item ? item.quantity : 0;
-  };
-
-  //Handle increase/decrease the quantity using quantity controls
-  const handleDecrease = () => {
-    const quantity = getCartQuantity(product.id);
-    if (quantity === 1) {
-      removeFromCart(product.id); 
-    } else {
-      updateCart(product.id, "decrease");
-    }
-  };
-
-  const handleIncrease = () => {
-    updateCart(product.id, "increase"); 
-  };
-
-
   if (error) {
-    return (
-      <Error/>
-    );
+    return <Error />;
   }
 
   return (
     <>
-    <Navbar cartCount={cartCount} goToCart={goToCart} />
+      <Navbar cartCount={cartCount} goToCart={goToCart} />
       {loading ? <ShimmerProductDescription /> : (
         <div className="product-description">
           <img src={product.image} alt={product.title} className="product-description-image" />
@@ -79,9 +55,9 @@ const ProductDescription = () => {
             </div>
             {getCartQuantity(product.id) > 0 ? <QuantityControls 
               quantity={getCartQuantity(product.id)}
-              onIncrease={handleIncrease}
-              onDecrease={handleDecrease}
-              onDelete={getCartQuantity(product.id) > 0 ? () => removeFromCart(product.id) : null}
+              onIncrease={() => handleIncrease(product.id)}
+              onDecrease={() => handleDecrease(product.id)}
+              onDelete={() => removeFromCart(product.id)}
             /> : (
               <button onClick={() => addToCart(product)} className="add-to-cart-btn">
                 Add to Cart
