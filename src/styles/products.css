@@ -170,8 +170,6 @@
         gap: 15px;
     }
     
-  /*quantity control css*/
-
   .quantity-controls {
     display: flex;
     align-items: center;
@@ -199,3 +197,19 @@
     font-weight: bold;
     color: #333;
   } 
+}
+
+.error-message {
+  text-align: center;
+  margin: 50px 0;
+  color: white;
+}
+
+.error-message h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.error-message p {
+  font-size: 1.2rem;
+}

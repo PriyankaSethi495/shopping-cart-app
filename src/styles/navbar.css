@@ -63,17 +63,33 @@
     background-color: #ff617e;
   }
   
-  
   .cover-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 800;
     color: #fff;
     text-align: center;
     text-shadow: 2px 2px 8px rgba(123, 117, 120, 0.933);
-    max-width: 80%;
+    max-width: 90%;
+    padding: 1rem;
     z-index: 2;
+    word-wrap: break-word;
   }
+  
+  @media (max-width: 768px) {
+    .cover-text {
+      font-size: 1.5rem;
+      padding: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cover-text {
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+  }
+  

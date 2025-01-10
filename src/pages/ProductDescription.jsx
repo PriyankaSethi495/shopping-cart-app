@@ -4,6 +4,7 @@ import "../styles/productDescription.css";
 import ShimmerProductDescription from '../components/ShimmerProductDescription';
 import { useCart } from '../context/CartContext';
 import Navbar from '../components/Navbar';
+import Error from '../components/Error';
 
 const ProductDescription = () => {
   const { id } = useParams(); 
@@ -11,6 +12,7 @@ const ProductDescription = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -18,10 +20,12 @@ const ProductDescription = () => {
       .then(data => {
         setProduct(data);
         setLoading(false);
+        setError(false);
       })
       .catch((error) => {
         console.error("Error fetching product:", error);
         setLoading(false);
+        setError(true);
       });
   }, [id]);
 
@@ -48,6 +52,13 @@ const ProductDescription = () => {
     updateCart(product.id, "increase"); 
   };
 
+
+  if (error) {
+    return (
+      <Error/>
+    );
+  }
+  
   return (
     <>
     <Navbar cartCount={cartItems.length} goToCart={goToCart} />

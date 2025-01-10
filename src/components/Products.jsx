@@ -3,10 +3,12 @@ import "../styles/products.css";
 import Shimmerproducts from "./Shimmerproducts";
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import Error from "./Error";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const { cartItems, updateCart, addToCart, removeFromCart } = useCart();
 
   useEffect(() => {
@@ -15,10 +17,12 @@ const Products = () => {
       .then((data) => {
         setProducts(data);
         setLoading(false);
+        setError(false);
       })
       .catch((error) => {
         console.error("Error:", error);
         setLoading(false);
+        setError(true);
       });
   }, []);
 
@@ -35,6 +39,12 @@ const Products = () => {
       updateCart(product.id, "decrease");
     }
   };
+
+  if (error) {
+    return (
+      <Error/>
+    );
+  }
 
   return (
     <>
