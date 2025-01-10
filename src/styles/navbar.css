@@ -79,10 +79,11 @@
     word-wrap: break-word;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 858px) {
     .cover-text {
       font-size: 1.5rem;
       padding: 0.8rem;
+      margin-top: 25px;
     }
   }
   

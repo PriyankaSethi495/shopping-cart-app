@@ -1,5 +1,5 @@
 import React from 'react'
-import "../styles/shimmer.css";
+import "../../styles/shimmer.css";
 
 const Shimmerproducts = () => {
     const skeletonItems = Array.from({ length: 18 });

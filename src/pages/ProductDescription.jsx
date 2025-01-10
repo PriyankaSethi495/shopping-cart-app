@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import "../styles/productDescription.css"; 
-import ShimmerProductDescription from '../components/ShimmerProductDescription';
+import ShimmerProductDescription from '../components/ShimmerUI/ShimmerProductDescription';
 import { useCart } from '../context/CartContext';
 import Navbar from '../components/Navbar';
 import Error from '../components/Error';

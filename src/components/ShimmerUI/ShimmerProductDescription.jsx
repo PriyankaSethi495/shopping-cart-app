@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/shimmer.css";
+import "../../styles/shimmer.css";
 
 const ShimmerProductDescription = () => {
   return (

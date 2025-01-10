@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Products from "../components/Products";
+import Products from "../pages/Products";
 import Navbar from "../components/Navbar";
 import { useCart } from "../context/CartContext";
 
