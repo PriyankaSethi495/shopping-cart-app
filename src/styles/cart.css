@@ -16,7 +16,6 @@
   margin-top: 20px;
 }
 
-
 .cart-empty-add {
   background-color: #ff617e;
   color: white;
@@ -29,7 +28,7 @@
   transition: background-color 0.3s ease;
   display: inline-block;
   text-align: center;
-} 
+}
 
 .cart {
   background-color: #fff;
@@ -124,8 +123,8 @@
 }
 
 .add-more-items {
- display: flex;
- justify-content: center; 
+  display: flex;
+  justify-content: center;
 }
 
 .cart-total {
@@ -227,39 +226,37 @@
   gap: 10px;
 }
 
-
 @media (max-width: 768px) {
   .cart {
-      width: 90%;
+    width: 90%;
   }
 
   .cart-item {
-      flex-direction: column;
-      text-align: center;
-      align-items: stretch;
+    flex-direction: column;
+    text-align: center;
+    align-items: stretch;
   }
 
   .item-image {
-      margin: 0 0 15px 0;
+    margin: 0 0 15px 0;
   }
 
   .item-details {
-      text-align: center;
+    text-align: center;
   }
 
   .voucher-section {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 
   .apply-voucher-btn,
   .clear-voucher-btn {
-      width: 100%;
-      margin-left: 0;
+    width: 100%;
+    margin-left: 0;
   }
 }
-
 
 @media (max-width: 800px) {
   .quantity-control-main {

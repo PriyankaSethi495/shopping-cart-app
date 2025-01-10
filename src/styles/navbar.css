@@ -11,6 +11,7 @@
     align-items: flex-start;
     position: sticky;
     box-sizing: border-box;
+    z-index: 2;
   }
   
   .navbar::before {
