@@ -3,20 +3,26 @@
 This is a React-based shopping store app that allows users to browse products, add them to the cart, update quantities, apply vouchers, and proceed to checkout.
 
 ## Features
-- **Homepage**: Displays a list of products with options to view detailed descriptions.
-- **Product Description Page**: Displays detailed information about products including images, price, description, and rating
-- **Product Quantity Controls**:
-    - Add items to the cart with the option to increase or decrease the quantity
-    - Remove items from the cart
-- **Cart Page**: View cart summary with the total, discount, and final amount
-- Apply voucher discount if total cart value is above a certain amount
+- **Homepage**: Browse a list of products with details like name, price, and image. Add items to the cart or view product details.  
+- **Product Description Page**: View detailed information about products with options to add to the cart or adjust quantities.  
+- **Cart Page**:  
+  - View all cart items with their details and subtotal.  
+  - Adjust quantities, remove items, or clear the entire cart.  
+  - Apply a 10% voucher discount for totals above $200.  
+  - See dynamic updates for totals and discounts.  
+  - "Add More" button to browse more products.  
+  - "Proceed to Pay" button to simulate checkout.  
+- **Navbar**: Displays a dynamic cart count and navigation to the cart page.  
+- **Responsive Design**: Ensures usability across all devices.  
 
-## Technologies Used
-- React (v17+)
-- React Router for navigation
-- Fetch API for retrieving product data
-- Shimmer UI
-- CSS for styling
+## Tech Stack
+
+- **Frontend**: React, JavaScript  
+- **Styling**: Custom CSS  
+- **API**: Fake Store API  (https://fakestoreapi.com/)
+- **State Management**: React useState and Context API  
+- **Routing**: React Router  
+- **Data Persistence**: Local Storage  
 
 ## Getting Started
 
