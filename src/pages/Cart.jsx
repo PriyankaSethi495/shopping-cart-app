@@ -72,7 +72,7 @@ const Cart = () => {
                 </div>
               ))}
             </div>
-
+            <button className="cart-empty-add" onClick={() => navigate("/")}>Add more items</button>
           <div className="cart-total">
             {totalAmount > 200 && !voucherApplied && (
               <div className="voucher-section">

@@ -13,6 +13,7 @@ const ProductDescription = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [error, setError] = useState(false);
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -28,6 +29,7 @@ const ProductDescription = () => {
         setError(true);
       });
   }, [id]);
+
 
 
   const goToCart = () => {
@@ -58,10 +60,10 @@ const ProductDescription = () => {
       <Error/>
     );
   }
-  
+
   return (
     <>
-    <Navbar cartCount={cartItems.length} goToCart={goToCart} />
+    <Navbar cartCount={cartCount} goToCart={goToCart} />
       {loading ? <ShimmerProductDescription /> : (
         <div className="product-description">
           <img src={product.image} alt={product.title} className="product-description-image" />
